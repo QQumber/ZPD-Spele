@@ -1,26 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <head>
-
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
     </head>
 
     <body>
+        <p id="demo"></p>
+
         <div class='main'>
             <div class='atbkop'>
                 <div class='atbkoptop'>
-                    <div class='piemers'>
-                        <div class='inpiemers'></div>
+                    <div  class='piemers'>
+                        <div id='piemers' class='inpiemers'></div>
                     </div>
                     <div class='pogukopa'>
-                        <div class='poga'></div>
-                        <div class='poga'></div>
-                        <div class='poga'></div>
-                        <div class='poga'></div>
+                        <input type="button" onclick="parbauditAtbildi()" value="Reset form" id='poga1' class='poga' onCliks='parbauditAtbildi()'></input>
+                        <div id='poga2' class='poga'></div>
+                        <div id='poga3' class='poga'></div>
+                        <div id='poga4' class='poga'></div>
                     </div>
                 </div>
-            </div>
+            </div>s
         </div>
+    <script>
+    let a,b,c;
+    let level = 1;
+    let sign = ["+","-",":","x"];
+    let atbildes = [3,7,8,9];
+    c = Math.floor(Math.random() * Math.floor(2));
+    a = Math.floor(Math.random() * 10);
+    b = Math.floor(Math.random() * 10);
+    var string = a + sign[c] + b;
+    document.getElementById("piemers").innerHTML = string;
+    atbildes.sort( () => .3 - Math.random() );
+    var i;
+    for (i = 1; i <= atbildes.length; i++) {
+        document.getElementById("poga" + i).innerHTML = atbildes[i-1];
+    }
+   
+    /*function saktSpeli(){
+
+    }
+    function jaunsPiemers(){
+
+    }
+    function jaunslimenis(){
+
+    }
+    function pareizaAtbilde(){
+
+    }
+    function nepareizaAtbilde(){
+
+    }
+
+    function parbauditAtbildi(){
+       
+    }
+        */
+    
+    
+    </script>
     </body>
 </html>
