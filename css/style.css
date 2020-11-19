@@ -1,10 +1,11 @@
+body {
+    background: url(pattern.png);
+    } 
+
 .main {
     width: 1366px;
     height: 768px;
-    border: 3px solid rgba(56,68,125,0.7);
-    border-radius: 18px;
     margin: auto;
-    background: linear-gradient(180deg, rgba(43,250,244,1) 0%, rgba(15,173,255,1) 76%, rgba(34,161,255,1) 100%);
 }
 .atbkop {
     animation: pop 1s ease 1 alternate;
@@ -82,9 +83,6 @@
     
     
 }
-body {
-    background: url(pattern.png);
-    } 
 
 @keyframes pop {
     0% {opacity:0%}
