@@ -5,8 +5,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
     </head>
 
-    <body>
-        <p id="demo"></p>
+    <body onload='saktSpeli()'>
 
         <div class='main'>
             <div class='atbkop'>
@@ -15,36 +14,57 @@
                         <div id='piemers' class='inpiemers'></div>
                     </div>
                     <div class='pogukopa'>
-                        <input type="button" onclick="parbauditAtbildi()" value="Reset form" id='poga1' class='poga' onCliks='parbauditAtbildi()'></input>
-                        <div id='poga2' class='poga'></div>
-                        <div id='poga3' class='poga'></div>
-                        <div id='poga4' class='poga'></div>
+                        <div onClick="parbauditAtbildi(this.id)" id='poga1' class='poga'></div>
+                        <div onClick="parbauditAtbildi(this.id)" id='poga2' class='poga'></div>
+                        <div onClick="parbauditAtbildi(this.id)" id='poga3' class='poga'></div>
+                        <div onClick="parbauditAtbildi(this.id)" id='poga4' class='poga'></div>
                     </div>
                 </div>
-            </div>s
+            </div>
         </div>
     <script>
-    let a,b,c;
-    let level = 1;
-    let sign = ["+","-",":","x"];
-    let atbildes = [3,7,8,9];
-    c = Math.floor(Math.random() * Math.floor(2));
-    a = Math.floor(Math.random() * 10);
-    b = Math.floor(Math.random() * 10);
-    var string = a + sign[c] + b;
-    document.getElementById("piemers").innerHTML = string;
-    atbildes.sort( () => .3 - Math.random() );
-    var i;
-    for (i = 1; i <= atbildes.length; i++) {
-        document.getElementById("poga" + i).innerHTML = atbildes[i-1];
+    let a,b,c,punkti
+    let level = 1
+    let sign = ["+","-",":","x"]
+    let atbildes = []
+    punkti = 0
+    
+    function jaunsPiemers(){
+        c = Math.floor(Math.random() * Math.floor(2))
+        a = Math.floor(Math.random() * 10)
+        b = Math.floor(Math.random() * 10)
+        atbildes.push(a + b)
+        atbildes.push(a - b)
+        atbildes.push(a - b + Math.floor(Math.random() * 10))
+        atbildes.push(a + b - Math.floor(Math.random() * 10))
+        let string = a + sign[c] + b
+        document.getElementById("piemers").innerHTML = string
+        atbildes.sort( () => .3 - Math.random() )
+        let i;
+        for (i = 1; i <= atbildes.length; i++) {
+            document.getElementById("poga" + i).innerHTML = atbildes[i-1]
+        }
     }
    
-    /*function saktSpeli(){
+    function parbauditAtbildi(clicked_id){
+        element = document.getElementById(clicked_id)
+        let searchThis = element.textContent || element.innerText; 
+        if ((c == 0 && a + b == searchThis) || ((c == 1 && a - b == searchThis))){
+            punkti +=1
+            alert(punkti)
+            jaunsPiemers()
+        }
+        else {
 
+            alert("NEPAREIZI")
+        }        
     }
-    function jaunsPiemers(){
-
+   
+    function saktSpeli(){
+        jaunsPiemers()
+        punkti = 0
     }
+    /*
     function jaunslimenis(){
 
     }
@@ -54,11 +74,9 @@
     function nepareizaAtbilde(){
 
     }
-
-    function parbauditAtbildi(){
+ */
+    
        
-    }
-        */
     
     
     </script>
