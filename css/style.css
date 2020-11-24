@@ -46,6 +46,10 @@ body {
     background: radial-gradient(circle, rgba(120,229,255,1) 0%, rgba(62,214,254,1) 100%);
     margin: 8px;
     border: 12px solid rgb(1, 194, 253);
+    font-size: 80px;
+    text-align:center;
+    line-height: 1.5em;
+    font-weight: bold;
     
 }
 .poga:hover {
@@ -68,6 +72,9 @@ body {
     border-radius: 10px;
     background: rgb(146,63,255);
     background: linear-gradient(0deg, rgb(219, 102, 255) 0%, rgb(237, 135, 253) 100%);
+    font-size: 44px;
+    text-align:center;
+    line-height: 1.5em;
     
 }
 
