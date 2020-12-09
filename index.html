@@ -8,6 +8,9 @@
     <body onload='saktSpeli()'>
 
         <div class='main'>
+            <div class='rekords' id='record'>asdasd</div>
+            <div class='punkti'>Tev pukti</div>
+            <div class='punkti' id='punkti'>0</div>
             <div class='atbkop'>
                 <div class='atbkoptop'>
                     <div  class='piemers'>
@@ -23,20 +26,50 @@
             </div>
         </div>
     <script>
-    let a,b,c,punkti
+    let a,b,c,punkti,skaitlis1,skaitlis2,rec
     let level = 1
     let sign = ["+","-",":","x"]
     let atbildes = []
     punkti = 0
+    rec = 0
     
     function jaunsPiemers(){
-        c = Math.floor(Math.random() * Math.floor(2))
-        a = Math.floor(Math.random() * 10)
-        b = Math.floor(Math.random() * 10)
-        atbildes.push(a + b)
-        atbildes.push(a - b)
-        atbildes.push(a - b + Math.floor(Math.random() * 10))
-        atbildes.push(a + b - Math.floor(Math.random() * 10))
+        if (rec < punkti){
+            rec = punkti
+            document.getElementById("record").innerHTML = "Max: " + rec
+        }
+        let atbildes = []
+        if (punkti >= 60){
+            c = Math.floor(Math.random() * Math.floor(2))
+            skaitlis1 = 100
+            skaitlis2 = 100
+        }
+        else if (punkti >= 30){
+            c = Math.floor(Math.random() * Math.floor(2))
+            skaitlis1 = 100
+            skaitlis2 = 10
+        }
+        else if (punkti >= 10){
+            c = 1
+            skaitlis1 = 10
+            skaitlis2 = 10
+        }
+        else{
+            c = 0
+            skaitlis1 = 10
+            skaitlis2 = 10
+        }
+        a = Math.floor(Math.random() * skaitlis1)
+        b = Math.floor(Math.random() * skaitlis2)
+        if (a < b) {
+            a = a + b
+            b = a - b
+            a = a - b
+        }
+        atbildes.push(Math.abs(a + b))
+        atbildes.push(Math.abs(a - b))
+        atbildes.push(Math.abs(a - 1))
+        atbildes.push(Math.abs(a +1))
         let string = a + sign[c] + b
         document.getElementById("piemers").innerHTML = string
         atbildes.sort( () => .3 - Math.random() )
@@ -50,13 +83,14 @@
         element = document.getElementById(clicked_id)
         let searchThis = element.textContent || element.innerText; 
         if ((c == 0 && a + b == searchThis) || ((c == 1 && a - b == searchThis))){
-            punkti +=1
-            alert(punkti)
+            punkti +=20
+            document.getElementById("punkti").innerHTML = punkti
             jaunsPiemers()
         }
         else {
-
-            alert("NEPAREIZI")
+            punkti -=30
+            document.getElementById("punkti").innerHTML = punkti
+            jaunsPiemers()
         }        
     }
    
@@ -64,21 +98,6 @@
         jaunsPiemers()
         punkti = 0
     }
-    /*
-    function jaunslimenis(){
-
-    }
-    function pareizaAtbilde(){
-
-    }
-    function nepareizaAtbilde(){
-
-    }
- */
-    
-       
-    
-    
     </script>
     </body>
 </html>
