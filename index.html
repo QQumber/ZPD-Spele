@@ -3,13 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
     </head>
 
     <body onload='saktSpeli()'>
 
         <div class='main'>
             <div class='rekords' id='record'>asdasd</div>
-            <div class='punkti'>Tev pukti</div>
+            <div class='punkti'>Tavi punkti</div>
             <div class='punkti' id='punkti'>0</div>
             <div class='atbkop'>
                 <div class='atbkoptop'>
@@ -39,17 +41,17 @@
             document.getElementById("record").innerHTML = "Max: " + rec
         }
         let atbildes = []
-        if (punkti >= 60){
+        if (punkti >= 1000){
             c = Math.floor(Math.random() * Math.floor(2))
-            skaitlis1 = 100
-            skaitlis2 = 100
+            skaitlis1 = 20
+            skaitlis2 = 20
         }
-        else if (punkti >= 30){
+        else if (punkti >= 500){
             c = Math.floor(Math.random() * Math.floor(2))
-            skaitlis1 = 100
+            skaitlis1 = 20
             skaitlis2 = 10
         }
-        else if (punkti >= 10){
+        else if (punkti >= 200){
             c = 1
             skaitlis1 = 10
             skaitlis2 = 10
