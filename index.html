@@ -69,9 +69,15 @@
             a = a - b
         }
         atbildes.push(Math.abs(a + b))
-        atbildes.push(Math.abs(a - b + 2))
-        atbildes.push(Math.abs(a - 1 - b))
-        atbildes.push(Math.abs(a + 3 + b))
+        atbildes.push(0)
+        atbildes.push(0)
+        atbildes.push(0)
+        while (atbildes[0] == atbildes[1] || atbildes[0] == atbildes[2] || atbildes[0] == atbildes[3]  || atbildes[1] == atbildes[3] || atbildes[2] == atbildes[3] || atbildes[1] < 0 || atbildes[2] < 0 || atbildes[3] < 0){
+            atbildes[1] = Math.round(Math.random() * skaitlis1) + a + b
+            atbildes[2] = Math.round(Math.random() * skaitlis1) - a + b
+            atbildes[3] = Math.round(Math.random() * skaitlis1) + a + b
+        }
+        
         let string = a + sign[c] + b
         document.getElementById("piemers").innerHTML = string
         atbildes.sort( () => .3 - Math.random() )
