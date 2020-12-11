@@ -10,7 +10,7 @@
     <body onload='saktSpeli()'>
 
         <div class='main'>
-            <div class='rekords' id='record'>asdasd</div>
+            <div class='rekords' id='record'></div>
             <div class='punkti'>Tavi punkti</div>
             <div class='punkti' id='punkti'>0</div>
             <div class='atbkop'>
@@ -69,9 +69,9 @@
             a = a - b
         }
         atbildes.push(Math.abs(a + b))
-        atbildes.push(Math.abs(a - b))
-        atbildes.push(Math.abs(a - 1))
-        atbildes.push(Math.abs(a +1))
+        atbildes.push(Math.abs(a - b + 2))
+        atbildes.push(Math.abs(a - 1 - b))
+        atbildes.push(Math.abs(a + 3 + b))
         let string = a + sign[c] + b
         document.getElementById("piemers").innerHTML = string
         atbildes.sort( () => .3 - Math.random() )
