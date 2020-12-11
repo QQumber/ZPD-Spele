@@ -68,7 +68,12 @@
             b = a - b
             a = a - b
         }
-        atbildes.push(Math.abs(a + b))
+        if (s == 0) {
+            atbildes.push(Math.abs(a + b))
+        }
+        else if (s == 1) {
+            atbildes.push(Math.abs(a - b))
+        }
         atbildes.push(0)
         atbildes.push(0)
         atbildes.push(0)
